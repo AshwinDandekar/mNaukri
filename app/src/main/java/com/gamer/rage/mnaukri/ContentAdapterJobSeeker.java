@@ -11,23 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by asd29 on 3/8/2016.
+ * Created by asd29 on 4/19/2016.
  */
-public class ContentAdapter extends ArrayAdapter {
-
+public class ContentAdapterJobSeeker extends ArrayAdapter {
     List list = new ArrayList<>();
 
-    public ContentAdapter(Context context, int resource) {
+    public ContentAdapterJobSeeker(Context context, int resource) {
         super(context, resource);
     }
 
-    public void clear() {
-        if(!list.isEmpty()) {
-            list.clear();
-        }
+public void clear() {
+    if(!list.isEmpty()) {
+        list.clear();
     }
-
-    public void add(Employer object) {
+}
+    public void add(JobSeeker object) {
         super.add(object);
         list.add(object);
     }
@@ -49,22 +47,26 @@ public class ContentAdapter extends ArrayAdapter {
         ContactHolder holder;
         if(v == null) {
             LayoutInflater layoutInflater = (LayoutInflater)this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = layoutInflater.inflate(R.layout.customitem,parent,false);
+            v = layoutInflater.inflate(R.layout.customjobseeker,parent,false);
             holder = new ContactHolder();
-            holder.title = (TextView)v.findViewById(R.id.jobtitle);
-            holder.location = (TextView)v.findViewById(R.id.location);
+            holder.name = (TextView)v.findViewById(R.id.listname);
+            holder.phno = (TextView)v.findViewById(R.id.listphno);
+            holder.location = (TextView)v.findViewById(R.id.listlocation);
+            holder.gender = (TextView)v.findViewById(R.id.listgender);
             v.setTag(holder);
         }
         else {
             holder = (ContactHolder) v.getTag();
         }
-        Employer employer = (Employer)this.getItem(position);
-        holder.title.setText(employer.getJobtitle());
-        holder.location.setText(employer.getLocation());
+        JobSeeker jobseeker = (JobSeeker)this.getItem(position);
+        holder.name.setText(jobseeker.getName());
+        holder.location.setText(jobseeker.getLocation());
+        holder.gender.setText(jobseeker.getGender());
+        holder.phno.setText(jobseeker.getPhno());
         return v;
     }
 
     static class ContactHolder {
-        TextView title,location;
+        TextView name,location,phno,gender;
     }
 }

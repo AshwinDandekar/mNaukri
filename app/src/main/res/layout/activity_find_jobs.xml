@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#40E0D0"
+    tools:context="com.gamer.rage.mnaukri.FindJobsActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:id="@+id/selectseeker"
+        android:text="Select Seekers"
+        android:onClick="populateFragmentWithSeekers"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="right"
+        android:text="Select Jobs"
+        android:onClick="populateFragmentWithJobs" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_below="@+id/selectseeker"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/listviewjobseeker">
+    </ListView>
+
+</RelativeLayout>

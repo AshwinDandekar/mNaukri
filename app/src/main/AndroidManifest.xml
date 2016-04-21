@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ScrollingActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -24,7 +24,19 @@
         <activity
             android:name=".DisplayItemActivity"
             android:label="@string/title_activity_display_item"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScrollingActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainSelectionActivity" />
+        <activity android:name=".JobSeekerEntryActivity" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FindJobsActivity" />
+        <activity android:name=".FindJobMatches"></activity>
     </application>
 
 </manifest>

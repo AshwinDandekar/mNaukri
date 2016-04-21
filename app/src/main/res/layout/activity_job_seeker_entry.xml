@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#40E0D0"
+    tools:context="com.gamer.rage.mnaukri.JobSeekerEntryActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Name :"
+                android:id="@+id/textViewName" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/EnteredName" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Age :"
+                android:id="@+id/textViewAge" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/EnteredAge" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Location :"
+                android:id="@+id/textViewLocation" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/EnteredLocation" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Gender :"
+                android:id="@+id/textViewGender" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/gendergroup">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="M"
+                android:id="@+id/radioButtonM"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="F"
+                android:id="@+id/radioButtonF"
+                android:checked="false"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N/A"
+                android:id="@+id/radioButtonNA"
+                android:checked="false" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Preference for time of work :"
+                android:id="@+id/textViewPref" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Preference"
+                android:id="@+id/checkBoxNoPref"
+                android:checked="false" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Long Term"
+                android:id="@+id/checkBoxLT"
+                android:checked="false" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short Term"
+                android:id="@+id/checkBoxST"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Disability :"
+                android:id="@+id/textView20"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/disabilitygroup">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:id="@+id/radioButtonDisabilityY"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/radioButtonDisabilityN"
+                android:checked="false" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Do you have a smartphone :"
+                android:id="@+id/textViewSmartPhone" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/smartphonegroup">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:id="@+id/radioButtonSmartPhoneY"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/radioButtonSmartPhoneN"
+                android:checked="false" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Phone No :"
+                android:id="@+id/textViewPhno"/>
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/EnteredPhno" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills :"
+                android:layout_below="@+id/textViewPhno"
+                android:id="@+id/textViewSkills"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/EnteredSkills"
+                android:lines="5"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:background="@drawable/back"
+
+                />
+
+            <Button
+                android:layout_marginTop="15dp"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Submit"
+                android:onClick="checkForm"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

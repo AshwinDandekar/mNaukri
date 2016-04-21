@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String selectedObj = "EmployerObj";
@@ -38,18 +39,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                this.finishAffinity();
-            }
-            else {
-                this.finish();
-            }
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

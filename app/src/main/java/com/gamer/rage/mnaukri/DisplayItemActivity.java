@@ -53,7 +53,7 @@ public class DisplayItemActivity extends AppCompatActivity {
         else if(employer.getGender().equals("M")) {
             gender.setText("Men Only");
         }
-        else if(employer.getGender().equals("F/M")){
+        else if(employer.getGender().equals("N/A")){
             gender.setText("No restriction");
         }
     }

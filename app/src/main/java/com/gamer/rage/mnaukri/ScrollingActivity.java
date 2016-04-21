@@ -1,3 +1,13 @@
+/*
+@develper note:
+This code was written by Ashwin
+ */
+
+
+
+
+
+
 package com.gamer.rage.mnaukri;
 
 import android.content.Intent;
@@ -17,9 +27,11 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -28,8 +40,10 @@ import java.util.concurrent.TimeoutException;
 public class ScrollingActivity extends AppCompatActivity {
 
     public static ArrayList<Employer> employerList;
+    static HttpURLConnection httpcon2;
     public static String Listname = "Employers";
-    String Json_response;
+    static String Json_response;
+    static String adminlocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +51,16 @@ public class ScrollingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         updateView();
     }
 
     public void updateView() {
+        adminlocation = getIntent().getExtras().getString(MainSelectionActivity.user);
+        employerList = new ArrayList<Employer>();
         Toast.makeText(this,"Loading available jobs",Toast.LENGTH_LONG).show();
         try {
-            employerList = new JSONfetcher().execute().get(2000, TimeUnit.MILLISECONDS);
+            new JSONfetcher().execute().get(2000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -64,9 +81,9 @@ public class ScrollingActivity extends AppCompatActivity {
     }
 
 
-    class JSONfetcher extends AsyncTask<Void,Void,ArrayList<Employer>> {
+    static class JSONfetcher extends AsyncTask<Void,Void,Void> {
 
-        HttpURLConnection httpcon;
+
         String json_url;
 
         @Override
@@ -75,15 +92,21 @@ public class ScrollingActivity extends AppCompatActivity {
         }
 
         @Override
-        protected ArrayList<Employer> doInBackground(Void... params) {
-
-            ArrayList<Employer> employers = new ArrayList<Employer>();
+        protected Void doInBackground(Void... params) {
 
             try {
 
+
                 URL url = new URL(json_url);
-                httpcon = (HttpURLConnection) url.openConnection();
-                InputStreamReader inputStream = new InputStreamReader(httpcon.getInputStream());
+                httpcon2 = (HttpURLConnection) url.openConnection();
+                httpcon2.setRequestMethod("POST");
+                httpcon2.setDoOutput(true);
+                httpcon2.setDoInput(true);
+                String joblocation = URLEncoder.encode("location","UTF-8")+"="+URLEncoder.encode(adminlocation,"UTF-8");
+                OutputStreamWriter wr = new OutputStreamWriter(httpcon2.getOutputStream());
+                wr.write(joblocation);
+                wr.flush();
+                InputStreamReader inputStream = new InputStreamReader(httpcon2.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStream);
                 StringBuilder stringBuilder = new StringBuilder();
                 while((Json_response = bufferedReader.readLine())!=null) {
@@ -106,7 +129,7 @@ public class ScrollingActivity extends AppCompatActivity {
                     String jobinfo = object.getString("jobinfo");
                     String vacancy = object.getString("vacancy");
                     Employer emp= new Employer(name,phno,orgname,jobtitle,location,duration,gender,age,specneeds,jobinfo,vacancy);
-                    employers.add(emp);
+                    employerList.add(emp);
                 }
             }
             catch(MalformedURLException e) {
@@ -117,9 +140,9 @@ public class ScrollingActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             } finally {
-                httpcon.disconnect();
+                httpcon2.disconnect();
             }
-            return employers;
+            return null;
         }
     }
 

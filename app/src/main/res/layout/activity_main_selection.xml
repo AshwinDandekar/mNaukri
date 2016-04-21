@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#40E0D0"
+    tools:context="com.gamer.rage.mnaukri.MainSelectionActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Job database"
+        android:id="@+id/alljobs"
+        android:layout_above="@+id/button4"
+        android:onClick="onAllJobsClicked"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a job seeker"
+        android:onClick="onAddSeekerClicked"
+        android:id="@+id/addseeker"
+        android:layout_above="@+id/alljobs"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Training"
+        android:onClick="onTrainingClicked"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp" />
+</RelativeLayout>
